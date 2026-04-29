@@ -2,6 +2,20 @@ import "./styles.css";
 import { loadHome } from "./pages/home.js"
 import { loadMenu } from "./pages/menu.js"
 import { loadAbout } from "./pages/about.js"
+import { colourRandomizer, randomizeColor } from "./utilities/colourRandomizer.js"
+
+function initializePage() {
+    randomizeColor()
+
+    const homeBtn = document.querySelector('[data-page="home"]');
+    if (homeBtn) {
+        setActiveButton(homeBtn);
+        renderPage(loadHome);
+    }
+
+    document.body.classList.add("loaded");
+}
+
 
 function renderPage(importedPage) {
     content.textContent = "";
@@ -33,8 +47,4 @@ buttons.forEach(button => {
     });
 });
 
-const homeBtn = document.querySelector('[data-page="home"]');
-if (homeBtn) {
-    setActiveButton(homeBtn);
-    renderPage(loadHome);
-}
+initializePage();

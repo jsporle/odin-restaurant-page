@@ -10,10 +10,15 @@
 
 html {
     font-size: 62.5%;
+    background-color: black;
 }
 
+
 :root {
-    --bg-main: rgb(167, 24, 24);
+    --r: 167;
+    --g: 24;
+    --b: 24;
+    --bg-main: rgb(var(--r), var(--g), var(--b));
     --text-main: rgb(255, 255, 250);
     --gap-main: 5em;
     /* --btn-border: 0.5em solid white;
@@ -24,13 +29,23 @@ html {
 }
 
 body {
-    background-color: var(--bg-main);
+    visibility: hidden;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, background-color 1s ease-in-out;
+    
     color: var(--text-main);
     font-family: var(--font-main);
     font-size: var(--clamp-main);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+body.loaded {
+    visibility: visible;
+    opacity: 1;
+    background-color: var(--bg-main);
 }
 
 header {
