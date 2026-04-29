@@ -1,27 +1,58 @@
+@import url(https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap);
+
+html {
+    font-size: 62.5%;
+}
+
 :root {
-    --bg-main: rgb(182, 28, 28);
+    --bg-main: rgb(167, 24, 24);
     --text-main: white;
-    --border-main: 2px solid white;
-    --gap-main: 2em;
+    --gap-main: 5em;
+    /* --btn-border: 0.5em solid white;
+    --btn-radius: 5em */
+    --font-main: "Domine", serif;
+    --clamp-main: clamp(0.4rem, calc(0.5rem + 1vw), 3rem);
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-size: 36px;
+    font-family: var(--font-main);
+    font-size: var(--clamp-main)
+}
+
+nav h1 {
+    margin-top: 10vw;
+    font-family: "Homemade Apple", serif;
+    font-size: clamp(1.6rem, calc(2rem + 3vw), 10rem);
+    color: var(--text-main);
+    transform: rotate(-9deg);
+    display: inline-block;
 }
 
 nav {
+    max-height: 20vh;
     width: 100vw;
     display: flex;
-    flex-flow: row;
-    gap: var(--gap-main);
+    flex-flow: column;
     align-items: center;
     justify-content: center;
 }
 
-nav .btn-nav {
-    border: none;
+#btn-bar {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+}
+
+#btn-bar button {
+    flex: 1;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1em;
     background-color: var(--bg-main);
     color: var(--text-main);
+    border: none;
 }
