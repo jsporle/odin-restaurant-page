@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     font-size: 62.5%;
@@ -7,40 +14,48 @@ html {
 
 :root {
     --bg-main: rgb(167, 24, 24);
-    --text-main: white;
+    --text-main: rgb(255, 255, 250);
     --gap-main: 5em;
     /* --btn-border: 0.5em solid white;
     --btn-radius: 5em */
-    --font-main: "Domine", serif;
-    --clamp-main: clamp(0.4rem, calc(0.5rem + 1vw), 3rem);
+    --font-main: "Playfair", serif;
+    --clamp-main: clamp(0.4rem, calc(1rem + 1vw), 3rem);
+    --menu-align: 1rem
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
     font-family: var(--font-main);
-    font-size: var(--clamp-main)
+    font-size: var(--clamp-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-nav h1 {
-    margin-top: 10vw;
+header {
+    width: 100vw;
+    padding: var(--menu-align);
+    padding-bottom: 0;
+    
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header h1 {
+    margin-top: 1%;
     font-family: "Homemade Apple", serif;
-    font-size: clamp(1.6rem, calc(2rem + 3vw), 10rem);
+    font-size: clamp(1.6rem, calc(2rem + 1vw), 10rem);
     color: var(--text-main);
     transform: rotate(-9deg);
     display: inline-block;
 }
 
-nav {
-    max-height: 20vh;
-    width: 100vw;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-}
-
 #btn-bar {
+    margin-top: 3%;
     width: 100%;
     display: flex;
     flex-flow: row;
@@ -51,8 +66,37 @@ nav {
     flex: 1;
     font-family: inherit;
     font-size: inherit;
-    padding: 1em;
+    padding: 1rem;
     background-color: var(--bg-main);
     color: var(--text-main);
     border: none;
+    border-radius: 2rem 2rem 0 0;
+    transition: all 200ms ease-in-out;
+}
+
+#btn-bar button:hover {
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    cursor: pointer;
+}
+
+#content {
+    display: flex;
+    flex-grow: 1;
+
+    border-radius: 0 0 2rem 2rem;
+
+    /* outline: 0.5rem solid var(--bg-main);
+    outline-offset: -2.5rem; */
+
+    box-shadow: inset 0 0 0 1.5rem var(--text-main),
+                inset 0 0 0 1.8rem var(--bg-main);
+
+    height: 100%;
+    margin: 0 var(--menu-align) var(--menu-align) var(--menu-align);
+    padding: 4rem;
+
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    
 }
