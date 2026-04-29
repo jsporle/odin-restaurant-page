@@ -13,7 +13,6 @@ html {
     background-color: black;
 }
 
-
 :root {
     --r: 167;
     --g: 24;
@@ -25,25 +24,24 @@ html {
     --btn-radius: 5em */
     --font-main: "Playfair", serif;
     --clamp-main: clamp(0.4rem, calc(1rem + 1vw), 3rem);
-    --menu-align: 1rem
+    --menu-align: 2.5rem;
 }
 
 body {
-    visibility: hidden;
     background-color: black;
     opacity: 0;
-    transition: opacity 1s ease-in-out, background-color 1s ease-in-out;
+    transition: opacity 600ms ease-in-out, background-color 600ms ease-in-out;
     
     color: var(--text-main);
     font-family: var(--font-main);
     font-size: var(--clamp-main);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 body.loaded {
-    visibility: visible;
     opacity: 1;
     background-color: var(--bg-main);
 }
@@ -100,22 +98,60 @@ header h1 {
 #content {
     display: flex;
     flex-grow: 1;
-
-    border-radius: 0 0 2rem 2rem;
-
-    /* outline: 0.5rem solid var(--bg-main);
-    outline-offset: -2.5rem; */
-
-    box-shadow: inset 0 0 0 1.5rem var(--text-main),
-                inset 0 0 0 1.8rem var(--bg-main);
-
-    height: 100%;
+    
+    scroll-behavior: smooth;
+    height: 0;
+    
     margin: 0 var(--menu-align) var(--menu-align) var(--menu-align);
-    padding: 4rem;
+    
 
     background-color: var(--text-main);
     color: var(--bg-main);
 
     font-size: calc(var(--clamp-main)*1.4);
-    
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+
+    border: 1.5rem solid var(--text-main);
+    outline: 0.25rem solid var(--bg-main);
+    outline-offset: -1.75rem;
+    border-radius: 0 0 2rem 2rem;
 }
+
+
+#content > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.home, .about {
+    padding: 0 10rem;
+    justify-content: center;
+}
+
+.menu {
+    padding: 6rem 4rem;
+    padding-bottom: 70rem;
+    justify-content: flex-start;
+}
+
+#content::-webkit-scrollbar,
+#content::-webkit-scrollbar-track,
+#content::-webkit-scrollbar-track-piece,
+#content::-webkit-scrollbar-button,
+#content::-webkit-scrollbar-corner {
+    background-color: var(--text-main);
+    border: none;
+    box-shadow: none;
+    height: 0;
+    width: 1rem;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background-color: var(--bg-main);
+}
+

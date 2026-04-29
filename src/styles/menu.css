@@ -1,0 +1,39 @@
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    width: 100%;
+    max-width: 50vw;
+}
+
+/* .menu-grid:last-of-type {
+    padding-bottom: 12rem;
+} */
+
+.menu-section-title {
+    font-size: calc(var(--clamp-main));
+    padding: 2rem;
+}
+
+.item-name {
+    font-size: calc(var(--clamp-main)*0.75);
+    padding-right: 1rem;
+    line-height: 1.4;
+    display: flex;
+    align-items: baseline;
+}
+
+.item-name::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px dotted var(--bg-main);
+    margin: 0 1rem;
+}
+
+.item-price {
+    font-size: calc(var(--clamp-main)*0.9);
+    white-space: nowrap;
+    align-self: end;
+}
