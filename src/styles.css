@@ -60,6 +60,7 @@ header h1 {
     display: flex;
     flex-flow: row;
     align-items: stretch;
+    gap: 2rem;
 }
 
 #btn-bar button {
@@ -74,7 +75,8 @@ header h1 {
     transition: all 200ms ease-in-out;
 }
 
-#btn-bar button:hover {
+#btn-bar button:hover,
+#btn-bar button.active {
     background-color: var(--text-main);
     color: var(--bg-main);
     cursor: pointer;
@@ -98,5 +100,7 @@ header h1 {
 
     background-color: var(--text-main);
     color: var(--bg-main);
+
+    font-size: calc(var(--clamp-main)*1.4);
     
 }
