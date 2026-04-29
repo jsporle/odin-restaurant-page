@@ -1,6 +1,27 @@
+:root {
+    --bg-main: rgb(182, 28, 28);
+    --text-main: white;
+    --border-main: 2px solid white;
+    --gap-main: 2em;
+}
+
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     font-size: 36px;
 }
 
+nav {
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+    gap: var(--gap-main);
+    align-items: center;
+    justify-content: center;
+}
+
+nav .btn-nav {
+    border: none;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}

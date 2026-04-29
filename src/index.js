@@ -1,9 +1,7 @@
 import "./styles.css";
 import { loadHome } from "./pages/home.js"
-import { loadAbout } from "./pages/about.js"
 import { loadMenu } from "./pages/menu.js"
-
-const contentContainer = document.getElementById("content");
+import { loadAbout } from "./pages/about.js"
 
 function renderPage(importedPage) {
     content.textContent = "";
@@ -12,21 +10,19 @@ function renderPage(importedPage) {
     console.log("new page render!")
 };
 
-const UI = {
-    btnHome: document.getElementById("btn-home"),
-    btnMenu: document.getElementById("btn-menu"),
-    btnAbout: document.getElementById("btn-about"),
+const contentContainer = document.getElementById("content");
+
+const pages = {
+    home: loadHome,
+    menu: loadMenu,
+    about: loadAbout,
 };
 
-UI.btnHome.onclick = () => {
-    renderPage(loadHome);
-};
+const buttons = document.querySelectorAll(".btn-nav");
 
-UI.btnMenu.onclick = () => {
-    renderPage(loadMenu);
-};
-
-UI.btnAbout.onclick = () => {
-    renderPage(loadAbout);
-};
-
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        const pageKey = e.target.dataset.page;
+        renderPage(pages[pageKey]);
+    });
+});
