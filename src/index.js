@@ -1,7 +1,14 @@
 import "./styles.css";
-import testImage from "./assets/test.jpeg";
+import { loadHome } from "./pages/home.js"
 
-const image = document.createElement ("img");
-image.src = testImage;
+const contentContainer = document.getElementById("content");
 
-document.body.appendChild(image);
+function renderPage(importedPage) {
+    content.textContent = "";
+    const pageElement = importedPage();
+    content.appendChild(pageElement);
+    console.log("test home ran!")
+};
+
+renderPage(loadHome);
+
